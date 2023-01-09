@@ -1,10 +1,4 @@
 
--- Percentage of Deaths in VN each day
-select location, date, cast(total_cases as int) total_cases , cast(total_deaths as int) total_deaths, (total_deaths / total_cases)*100 as percentage_of_deaths from Covid_Deaths
-where location like '%viet%' and (total_deaths / total_cases) is not null
-group by location, date, total_cases, total_deaths
-order by date 
-
 -- Top 10 countries with highest infection
 select top(10) location, MAX(total_cases) as highest_cases from Covid_Deaths
 where continent is not null 
